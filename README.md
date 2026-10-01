@@ -16,6 +16,12 @@ Mural estudantil com informações da monitoria, oficinas, materiais, monitores 
 
 Esta primeira versão tem publicações demonstrativas. Nomes, disciplinas, datas e link da agenda serão preenchidos pela equipe.
 
+## Painel de boas-vindas
+
+O painel **Sua visita** apresenta o funcionamento da monitoria e a sala 194 no campus Taguatinga. Dias, horários, disciplinas e forma de participação aguardam confirmação.
+
+Preencha `visita` em [conteudo.js](conteudo.js): `sala`, `campus`, `horarios`, `observacaoHorarios`, `disciplinas` e `participacao`. Campos vazios exibem avisos de informação ainda não divulgada. Use `\n` para separar dias e horários em linhas. Sem observação específica, os horários usam Brasília. A agenda remota continua independente deste painel.
+
 ## Atualizar o site
 
 Edite [conteudo.js](conteudo.js). As alterações na branch `main` são publicadas automaticamente pelo GitHub Pages.

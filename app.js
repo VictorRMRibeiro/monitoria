@@ -5,6 +5,12 @@
   const safeUrl = value => { try { const url = new URL(value); return url.protocol === 'https:' ? url.href : null; } catch { return null; } };
   const el = (tag, className, text) => { const node = document.createElement(tag); if (className) node.className = className; if (text) node.textContent = text; return node; };
   document.title = `${data.nome} • Aprender é melhor junto`;
+  const visita = data.visita || {};
+  const visitFields = { sala: 'visit-room', campus: 'visit-campus', horarios: 'visit-hours', observacaoHorarios: 'visit-hours-note', disciplinas: 'visit-subjects', participacao: 'visit-access' };
+  Object.entries(visitFields).forEach(([field, id]) => {
+    if (typeof visita[field] === 'string' && visita[field].trim()) document.getElementById(id).textContent = visita[field].trim();
+  });
+  if (visita.horarios?.trim() && !visita.observacaoHorarios?.trim()) document.getElementById('visit-hours-note').textContent = 'Horário de Brasília.';
   const repo = safeUrl(data.repositorio);
   if (repo) document.querySelector('#repository-link').href = `${repo.replace(/\/$/, '')}`;
   document.querySelector('.demo-label').hidden = !data.demonstracao;
